@@ -331,7 +331,7 @@ func (e *Escpos) QRCode(code string, model bool, size uint8, correctionLevel uin
 
 	// pL and pH define the size of the data. Data ranges from 1 to (pL + pH*256)-3
 	// 3 < pL + pH*256 < 7093
-	var codeLength = len(code) + 3
+	codeLength := len(code) + 3
 	var pL, pH byte
 	pH = byte(int(math.Floor(float64(codeLength) / 256)))
 	pL = byte(codeLength - 256*int(pH))
@@ -420,6 +420,7 @@ func boolToByte(b bool) byte {
 	}
 	return 0x00
 }
+
 func onlyDigits(s string) bool {
 	for _, c := range s {
 		if c < '0' || c > '9' {

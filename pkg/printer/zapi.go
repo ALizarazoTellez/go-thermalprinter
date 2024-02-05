@@ -2,8 +2,10 @@
 
 package printer
 
-import "unsafe"
-import "syscall"
+import (
+	"unsafe"
+	"syscall"
+)
 
 var _ unsafe.Pointer
 

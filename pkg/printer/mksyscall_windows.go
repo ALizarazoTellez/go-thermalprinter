@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build ignore
 // +build ignore
 
 /*
@@ -719,7 +720,7 @@ func main() {
 	if *filename == "" {
 		_, err = os.Stdout.Write(data)
 	} else {
-		err = ioutil.WriteFile(*filename, data, 0644)
+		err = ioutil.WriteFile(*filename, data, 0o644)
 	}
 	if err != nil {
 		log.Fatal(err)

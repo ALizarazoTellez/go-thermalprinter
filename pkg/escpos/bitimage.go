@@ -88,15 +88,14 @@ func rasterize(printWidth int, printHeight int, pixels *[][]pixel) ([]byte, erro
 	for y := 0; y < printHeight; y++ {
 		for x := 0; x < printWidth; x = x + 8 {
 			i := y*(printWidth>>3) + (x >> 3)
-			bytes[i] =
-				byte((getPixelValue(x+0, y, pixels) << 7) |
-					(getPixelValue(x+1, y, pixels) << 6) |
-					(getPixelValue(x+2, y, pixels) << 5) |
-					(getPixelValue(x+3, y, pixels) << 4) |
-					(getPixelValue(x+4, y, pixels) << 3) |
-					(getPixelValue(x+5, y, pixels) << 2) |
-					(getPixelValue(x+6, y, pixels) << 1) |
-					getPixelValue(x+7, y, pixels))
+			bytes[i] = byte((getPixelValue(x+0, y, pixels) << 7) |
+				(getPixelValue(x+1, y, pixels) << 6) |
+				(getPixelValue(x+2, y, pixels) << 5) |
+				(getPixelValue(x+3, y, pixels) << 4) |
+				(getPixelValue(x+4, y, pixels) << 3) |
+				(getPixelValue(x+5, y, pixels) << 2) |
+				(getPixelValue(x+6, y, pixels) << 1) |
+				getPixelValue(x+7, y, pixels))
 		}
 	}
 
@@ -126,7 +125,6 @@ type pixel struct {
 }
 
 func getPixels(img image.Image) (int, int, [][]pixel) {
-
 	bounds := img.Bounds()
 	width, height := bounds.Max.X, bounds.Max.Y
 
